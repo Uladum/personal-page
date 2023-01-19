@@ -1,6 +1,8 @@
 import { NavBar } from '../components/NavBar'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Contact as IContact } from '../interfaces/project'
+import axios from 'axios'
+import { getEnvVariables } from '../helpers/getEnvVariables'
 
 const emailPattern =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -12,8 +14,10 @@ export const Contact = () => {
     handleSubmit
   } = useForm({ mode: 'onTouched' })
 
-  const onSubmit = (data: any) => {
-    // TODO: Call to backend
+  const { VITE_API_URL } = getEnvVariables()
+
+  const onSubmit = async (data: any) => {
+    axios.post(`${VITE_API_URL}/contact`, data)
   }
 
   return (

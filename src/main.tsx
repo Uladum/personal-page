@@ -10,7 +10,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <AppRouter />
-      <p>&copy; {date}</p>
+      <p>
+        &copy; {date} <small>This web is protected with reCaptcha</small>
+      </p>
     </BrowserRouter>
   </React.StrictMode>
 )
