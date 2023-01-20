@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { Contact as IContact } from '../interfaces/project'
 import axios from 'axios'
 import { getEnvVariables } from '../helpers/getEnvVariables'
+import { ReCaptchaComponent } from '../components/ReCaptcha'
 
 const emailPattern =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -97,7 +98,8 @@ export const Contact = () => {
                 )}
               </div>
               <div>
-                <button type='submit'>Submit</button>
+                {/* <button type='submit'>Submit</button> */}
+                <ReCaptchaComponent />
               </div>
             </form>
           </div>
